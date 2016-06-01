@@ -1,0 +1,265 @@
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0;
+}
+
+.byline,
+.updated:not(.published){
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+// home page ------------------------
+
+.home .entry-content {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	@include breakpoint(brother-bear) { justify-content: flex-start; }
+
+	&:before {
+		display: none;
+	}
+
+	.post {
+		position: relative;
+		width: 100%;
+		height: 30em;
+		min-height: 30em;
+  		font-weight: 300;
+		@include breakpoint(brother-bear) { width: 49.9%; }
+		@include breakpoint(mama-bear) { width: 33.3%; }
+
+		& > a {
+			position: relative;
+			display: block;
+			display: flex;
+			margin: 0;
+			padding: 0;
+			justify-content: center;
+  			align-items: center;
+  			width: 100%;
+  			height: 100%;
+  			z-index: 10;
+
+  			.post_meta {
+  				display: flex;
+  				flex-flow: column nowrap;
+  				justify-content: center;
+  				align-items: center;
+  				max-width: 85%;
+
+  				// post title
+  				.post_title {
+  					position: relative;
+  					color: $color__greendark;
+  					font-size: 1em;
+  					font-weight: 400;
+  					margin-bottom: 0.7em;
+  					background: $color__white;
+  					padding: 0.5em 1.25em;
+  					border-radius: 3px;
+  					@include smooth-transition;
+
+  					// date
+	  				.post_date {
+						padding: 0.5em 0.75em;
+						color: $color__black;
+						font-weight: 400;
+						font-size: 0.7em;
+						width: auto;
+						align-self: flex-start;
+						text-align: left;
+						text-indent: -0.7em;
+					    border-top: 1px solid $color__lightgreen;
+					    margin-top: 1em;
+					    padding-top: 0.75em;
+						@include clearfix; 
+					}
+  				}
+  			}
+
+  			&:hover {
+
+  				// post title
+  				.post_title {
+  					color: $color__white;
+  					background: $color__greendark;
+  				}
+
+  				// date
+  				.post_date {
+					color: $color__greydark;
+					border-top: 1px solid $color__white;
+				}
+  			}
+		}
+
+		.post_thumb {
+			position: absolute;
+			top: 0;
+			width: auto;
+			min-width: 100%;
+		    height: 100%;
+		    overflow: hidden;
+			z-index: 0;
+			opacity: .5;
+			display: flex;
+			justify-content: center;
+
+			img {
+				max-height: 100%;
+				height: 100%;
+			}
+		}
+	}
+}
+
+// Single post ------------------------------
+
+.single {
+
+	#main {
+		display: block;
+		background: $color__white;
+		padding-bottom: 3.2em;
+
+		.post-navigation,
+		.hentry,
+		.comments-area {
+			display: block;
+			clear: both;
+		}
+
+		// move content... up 
+		.scroll-content {
+			margin-top: 0;
+		}
+
+		// and... down
+		.fixed-content {
+			margin-top: 24em;
+			@include breakpoint(brother-bear) { margin-top: 11em; }
+		}
+
+		// entry header
+		.hentry {
+			position: relative;
+			margin-bottom: 3.2em;
+
+			.entry-header {
+				text-align: center;
+				margin-bottom: 1.6em;
+
+				// post title
+				h1 {
+					font-weight: 400;
+					font-size: 1.8em;
+					margin-left: 2.5%;
+				    margin-right: 2.5%;
+				    line-height: 1.2;
+				    @include breakpoint(brother-bear) { font-size: 2em; }
+				}
+
+				// entry meta
+				.entry-meta {
+					position: relative;
+				    font-weight: 300;
+				    font-size: 0.75em;
+				    top: -1.6em;
+
+				    // post meta separator
+		    		.sep {
+		    			color: $color__greenlight;
+		    			font-size: 1.2em;
+		    			margin: 0 0.75em;
+		    		}
+				}
+			}
+
+			// thumbnail
+			.single_thumb {
+				position: relative;
+				width: 100%;
+				margin-bottom: 2.4em;
+
+				img {
+					max-width: 100%;
+					height: auto;
+				}
+			}
+
+			// entry content
+			.entry-content {
+				position: relative;
+				margin: 0 10%;
+				font-weight: 300;
+			}
+		}
+
+		// share
+		.sharedaddy {
+			margin-top: 6em;
+			padding: 3em 0 5em;
+			text-align: center;
+			background: $color__evenlightergreen;
+
+			// title
+			h3.sd-title {
+				font-weight: 400;
+				font-size: 1.2em;	
+
+				&:before {
+					border: none;
+				}					
+			}
+		}
+
+		// entry comment
+		.comments-area {
+			margin-top: 2em;
+			padding-top: 3em;
+
+			// comment area
+			.comment-respond {
+				margin: 0 15%;
+				font-weight: 300;
+				text-align: center;						
+
+				// post title
+				h3 {
+					font-weight: 400;
+					font-size: 1.5em;
+				}
+
+				// heading
+				.logged-in-as,
+				.comment-notes {
+					position: relative;
+				    font-weight: 300;
+				    font-size: 0.75em;
+				    top: -1.6em;
+				}
+			}
+		}
+	}
+}

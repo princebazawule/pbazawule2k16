@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'socialicons';
+    src:    url('fonts/socialicons/fonts/socialicons.eot?8soued');
+    src:    url('fonts/socialicons/fonts/socialicons.eot?8soued#iefix') format('embedded-opentype'),
+        url('fonts/socialicons/fonts/socialicons.ttf?8soued') format('truetype'),
+        url('fonts/socialicons/fonts/socialicons.woff?8soued') format('woff'),
+        url('fonts/socialicons/fonts/socialicons.svg?8soued#socialicons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'socialicons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-me:before {
+    content: "\e900";
+}
+.icon-pixld:before {
+    content: "\e901";
+}
+.icon-mail:before {
+    content: "\e902";
+}
+.icon-mixcloud:before {
+    content: "\e903";
+}
+.icon-dribbble:before {
+    content: "\e904";
+}
+.icon-twitter:before {
+    content: "\e905";
+}
+.icon-github:before {
+    content: "\e906";
+}
+.icon-linkedin:before {
+    content: "\e907";
+}

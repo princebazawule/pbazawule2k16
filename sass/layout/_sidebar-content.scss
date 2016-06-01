@@ -1,0 +1,301 @@
+// Alighments
+.center-align {
+	text-align: center;
+}
+
+// wrapper = #page ----------------------------------------------
+
+#page {
+	display: flex;
+	flex-flow: column nowrap;
+	min-height: 100vh;
+	align-content: stretch;
+	@include breakpoint(papa-bear) { flex-flow: row wrap; background: $color__white; }
+}
+
+	// header = #masthead -----------------------------------------
+	#masthead {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-content: flex-start;
+		background: $color__green;
+		// order: -2;
+		@include breakpoint(papa-bear) { flex: 1 1 30%; }
+		
+		// individual item
+		& > .item {
+			flex: 1 1 100%;
+		}
+
+		.header-content {
+			position: relative;
+			// margin-top: 1em;
+			margin-left: 0;
+			width: 100%;
+			@include breakpoint(papa-bear) { position: fixed; margin-left: -15%; width: 30%; }
+		}
+
+		.avatar {
+			img {
+				border-radius: 50%;
+			  	max-width: 8.5em;
+			  	background: $color__white;
+			  	padding: 0.55em;
+			  	margin: 2em 1.5em 0;
+			}
+		}
+
+		//site branding
+		.site-branding {
+			color: $color__white;
+			margin: 0 1.5em 2em;
+
+			//site title			
+			.site-title a {
+				font-size: 1.5em;
+				font-weight: 400;
+				
+				&:hover {
+					// opacity: 0.8;
+					// color: $color__greendark;
+					color: $color__semiblack;
+				}
+
+				&:before {
+					content: "‹";
+					margin-right: 0.25em;
+				}
+
+				&:after {
+					content: "/›";
+					margin-left: 0.25em;
+				}
+			}
+
+			//site description
+			.site-description {
+				font-size: 0.875em;
+				font-weight: 300;
+				margin: 0 10%;
+				max-width: 40em;
+				@include breakpoint(mama-bear) { margin: 0 auto; }
+
+				// read more
+				.read-more-state {
+				  display: none;
+				}
+
+				.read-more-target {
+				  opacity: 0;
+				  max-height: 0;
+				  font-size: 0;
+				  // transition: opacity .6s ease-in-out;
+				  transition: opacity .6s linear;
+
+				  a {
+				  	color: $color__greydark;
+				  	font-weight: 400;
+
+				  	&:hover {
+				  		color: $color__greendark;
+				  	}
+				  }
+				}
+
+				.read-more-state:checked ~ .read-more-wrap .read-more-target {
+				  opacity: 1;
+				  font-size: inherit;
+				  max-height: 999em;
+				}
+
+				.read-more-state ~ .read-more-trigger:before {
+				  content: 'more';
+				}
+
+				.read-more-state:checked ~ .read-more-trigger:before {
+				  content: 'less';
+				}
+
+				.read-more-trigger {
+				  cursor: pointer;
+				  display: inline-block;
+				  top: 1.5em;
+				  padding: 0.5em 1em;;
+				  background: $color__greendark;
+				  color: $color__greenlight;
+				  margin: 0.5em 0;
+				  font-weight: 400;
+				  font-size: 1.1em;
+				  border-radius: 3px;
+				  @include spinner;
+				}
+			}
+
+			// .read-more-trigger {
+			// 	position: relative;
+			// 	top: 1.5em;
+			// 	padding: 0.5em 0;
+			// 	background: $color__greendark;
+			// 	color: $color__greenlight;
+			// 	margin: 0.5em 0;
+
+			// 	&:before {
+			// 		content: ". ";
+			// 		padding: 0.5em 0.8em;
+			// 		background: white;
+			// 		border-radius: 50% 0 0 50%;
+			// 		-moz-border-radius: 50% 0 0 50%;
+			// 		-webkit-border-radius: 50% 0 0 50%;
+			// 		margin-left: -1em;
+			// 		background: $color__greendark;
+			// 		text-indent: -9999px;
+			// 		color: $color__greendark;
+			// 	}
+
+			// 	&:after {
+			// 		content: ". ";
+			// 		padding: 0.5em 0.8em;
+			// 		background: white;
+			// 		border-radius: 0 50% 50% 0;
+			// 		-moz-border-radius: 0 50% 50% 0;
+			// 		-webkit-border-radius: 0 50% 50% 0;
+			// 		margin-right: -1em;
+			// 		background: $color__greendark;
+			// 		color: $color__greendark;
+			// 	}
+			// }
+		}
+
+		// social icons
+		#social-icons {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			width: 100%;
+			margin: 0 0 2em 0;
+			padding: 0;
+
+			li {
+				position: relative;
+				font-size: 2.5em;
+				margin: 0;
+				text-align: center;
+				list-style: none;
+			}
+
+			a {
+				text-decoration: none;
+				color: $color__white;
+
+				span.social-icon {
+					font-size: 0.68em;
+					padding: 0.4em;
+				}
+
+				span.mls {
+					display: none;
+				}
+
+				&:hover {
+					color: $color__greendark;
+				}
+			}
+		}
+
+		.fixed {
+		    position: fixed;
+		    top: 0;
+		    width: 100%;
+		    margin-left: -50%;
+		    z-index: 34556;
+		    background: $color__green;
+
+		    // avatar
+			.avatar {
+				img {
+					position: relative;
+					top: -0.5em;
+					font-size: 0.5em;
+					@include breakpoint(brother-bear) { float: left; margin-left: 5%; }
+				}
+			}
+
+			// site branding
+			.site-branding {
+				margin: 0 1.5em 0.5em;
+				@include breakpoint(brother-bear) { float: left; margin-top: 1em; padding: 0; text-align: left; max-width: 40%; }
+
+				//site title			
+				.site-title a {
+					font-size: 1.2em;
+				}
+
+				//site description
+				.site-description {
+					@include breakpoint(brother-bear) { max-width: 100%; margin: 0; font-size: 0.8em; position: relative; margin-top: -1.2em; }
+
+				    // read more trigger
+					.read-more-trigger,
+					.read-more-target {
+					  display: none;
+					}
+
+					.read-more-wrap p:first-child {
+						display: flex !important;
+					}
+				}
+			}
+
+			// social icons
+			#social-icons {
+				display: none;
+			}
+		}	
+	}
+
+	// primary = #main -----------------------------------------
+	#main {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		height: auto;
+		min-height: 50em;
+		@include breakpoint(papa-bear) { flex: 1 1 70%; }
+	}
+
+	// secondary = #slideshow -----------------------------------------
+	#sidebar {
+		height: auto;
+		padding: 1em;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		background: $color__greendark;
+		display: none;
+	}
+
+    // footer = #colophon -----------------------------------------
+    #colophon {
+    	@include breakpoint(papa-bear) { position: relative; flex: 0 0 30%; bottom: 0; /*top: -3em; margin-bottom: -7em;*/ border: none; background: $color__green; }
+    	// display: none;
+
+    	// site name
+    	.site-info {
+    		text-transform: uppercase;
+    		font-size: 0.75em;
+    		font-weight: 300;
+    		color: $color__greydark;
+    		padding: 3.5em 0;
+    		@include breakpoint(papa-bear) { color: $color__white; }
+
+    		// copyright separator
+    		.sep {
+    			color: $color__green;
+    			font-size: 1.2em;
+    			margin: 0 0.75em;
+    			@include breakpoint(papa-bear) { color: $color__greenlight; }
+    		}
+    	}
+    }

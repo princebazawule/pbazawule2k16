@@ -1,0 +1,98 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Smooth-Transition
+@mixin smooth-transition() {
+  -webkit-transition: all 0.2s ease-in-out !important;
+  -moz-transition: all 0.2s ease-in-out !important;
+  -o-transition: all 0.2s ease-in-out !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+// Media Query breakpoints
+@mixin breakpoint($point) {
+	@if $point == baby-bear {  //  <= 479
+		@media (max-width: 29.938em)  { @content; }
+	}
+	@else if $point == brother-bear {  //  >= 769
+		@media (min-width: 768px) { @content; }
+	}
+	@else if $point == mama-bear {  //  >= 1025
+		@media (min-width: 1024px)  { @content; }
+	}
+	// @else if $point == papa-bear {  //  >= 1281
+	// 	@media (min-width: 1280px)  { @content; }
+	// }
+	@else if $point == papa-bear {  //  >= 1441
+		@media (min-width: 1440px)  { @content; }
+	}
+}
+
+// spinner
+
+@mixin spinner {
+	.spinner {
+	  text-align: center;
+	  display: none;
+	}
+
+	.spinner > div {
+		width: 8px;
+		height: 8px;
+		background-color: rgba(255,255,255,.3);
+		border-radius: 100%;
+		display: inline-block;
+		animation: sk-bouncedelay 1.2s infinite ease-in-out both;
+		margin-right: 0px;
+	}
+
+	.spinner .spinner__item1 {
+		animation-delay: -0.60s;
+	}
+
+	.spinner .spinner__item2 {
+		animation-delay: -0.40s;
+	}
+
+	.spinner .spinner__item3 {
+		animation-delay: -0.20s;
+	}
+
+	@keyframes sk-bouncedelay {
+		0%, 80%, 100% { 
+			transform: scale(0);
+			opacity: 0;
+		} 40% {
+			transform: scale(1.0);
+			opacity: 1;
+		}
+	}
+
+	&:hover {
+		> .spinner {
+			display: block !important;
+		}
+	}
+}
